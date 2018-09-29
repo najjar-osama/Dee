@@ -1,0 +1,19 @@
+{
+  "name": "dee-server",
+  "version": "1.0.0",
+  "description": "Dee App Server",
+  "main": "server.js",
+  "scripts": {
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/najjar-osama/Dee.git"
+  },
+  "author": "Osama Najjar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/najjar-osama/Dee/issues"
+  },
+  "homepage": "https://github.com/najjar-osama/Dee#readme"
+}
