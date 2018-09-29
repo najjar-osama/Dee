@@ -1,0 +1,19 @@
+{
+  "name": "dee-client",
+  "version": "1.0.0",
+  "description": "Dee App Client",
+  "main": "index.js",
+  "scripts": {
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/najjar-osama/Dee.git"
+  },
+  "author": "Osama Najjar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/najjar-osama/Dee/issues"
+  },
+  "homepage": "https://github.com/najjar-osama/Dee#readme"
+}
