@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/najjar-osama/Dee/issues"
   },
-  "homepage": "https://github.com/najjar-osama/Dee#readme"
+  "homepage": "https://github.com/najjar-osama/Dee#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
