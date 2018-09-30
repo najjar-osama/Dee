@@ -4,7 +4,8 @@
   "description": "Dee App Server",
   "main": "server.js",
   "scripts": {
-    "dev-server": "nodemon server.js"
+    "dev-server": "nodemon server.js",
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
