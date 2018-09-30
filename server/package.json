@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/najjar-osama/Dee#readme",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.3.0"
   },
