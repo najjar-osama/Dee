@@ -4,7 +4,7 @@
   "description": "Dee App Server",
   "main": "server.js",
   "scripts": {
-    "dev-server": "node server.js"
+    "dev-server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/najjar-osama/Dee#readme",
   "dependencies": {
     "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
   }
 }
