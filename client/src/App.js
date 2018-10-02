@@ -1,8 +1,9 @@
 import React from "react";
+import LandingPage from "./components/landing_page/LandingPage";
 
 const App = () => (
   <div className="app">
-    <h1>Hello from Dee!</h1>
+    <LandingPage />
   </div>
 );
 
