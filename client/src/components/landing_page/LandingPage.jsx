@@ -4,11 +4,10 @@ import Footer from "./Footer";
 import BackgroundWrapper from "./BackgroundWrapper";
 
 const LandingPage = () => (
-  <div>
-    <BackgroundWrapper>
-      <Header />
-      <Footer />
-    </BackgroundWrapper>
+  <div className="landing-page-wrapper">
+    <Header />
+    <Footer />
+    <BackgroundWrapper />
   </div>
 );
 
