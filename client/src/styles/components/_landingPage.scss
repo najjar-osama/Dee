@@ -22,6 +22,11 @@
   z-index: 1;
 }
 
+.content-wrapper > :not(.bg) {
+  position: relative;
+  z-index: 2;
+}
+
 .bg {
   background-size: cover;
   background-position: center;

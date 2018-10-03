@@ -49,7 +49,12 @@ class BackgroundWrapper extends React.Component {
     clearInterval(this.bgSwapInterval);
   }
   render() {
-    return <div className="bg-wrapper">{this.createBackgroundSlides()}</div>;
+    return (
+      <div className="bg-wrapper content-wrapper">
+        {this.props.children}
+        {this.createBackgroundSlides()}
+      </div>
+    );
   }
 }
 export default BackgroundWrapper;
