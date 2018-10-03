@@ -5,12 +5,11 @@ import BackgroundWrapper from "./BackgroundWrapper";
 
 const LandingPage = () => (
   <div className="landing-page-wrapper">
-    <BackgroundWrapper>
-      <div className="main-content-wrapper">
-        <Header />
-        <Footer />
-      </div>
-    </BackgroundWrapper>
+    <div className="main-content-wrapper">
+      <Header />
+      <Footer />
+    </div>
+    <BackgroundWrapper />
   </div>
 );
 
