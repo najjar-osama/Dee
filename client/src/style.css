@@ -364,10 +364,6 @@ th {
   text-align: center;
   padding-top: 150px; }
 
-.landing-page-wrapper > * {
-  position: relative;
-  z-index: 2; }
-
 .landing-page-wrapper {
   background-color: #000;
   height: 100%;
@@ -388,7 +384,7 @@ th {
 
 .content-wrapper > :not(.bg) {
   position: relative;
-  z-index: 2; }
+  z-index: 3; }
 
 .bg {
   background-size: cover;
@@ -404,11 +400,9 @@ th {
   animation: bg-anim 45s linear 0s infinite; }
 
 .visible {
+  display: block;
   opacity: 0;
   z-index: 2; }
-
-.bg.visible {
-  display: block; }
 
 .next {
   z-index: 1;
