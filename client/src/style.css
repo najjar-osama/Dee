@@ -430,3 +430,8 @@ th {
 
 .header {
   color: #fff; }
+
+.header-title {
+  font-size: 100px;
+  margin: 0;
+  text-shadow: 0px 0px 5px #fff; }
