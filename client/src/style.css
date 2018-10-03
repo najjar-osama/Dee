@@ -364,6 +364,9 @@ th {
   text-align: center;
   padding-top: 150px; }
 
+.container {
+  margin: 0 5%; }
+
 .landing-page-wrapper {
   background-color: #000;
   height: 100%;
