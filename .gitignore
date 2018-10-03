@@ -5,3 +5,5 @@
 
 
 *.env
+
+client/src/**/*.css
