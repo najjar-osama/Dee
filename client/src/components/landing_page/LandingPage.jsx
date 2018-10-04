@@ -9,6 +9,7 @@ const LandingPage = () => (
       <Header />
       <Footer />
     </div>
+
     <BackgroundWrapper />
   </div>
 );

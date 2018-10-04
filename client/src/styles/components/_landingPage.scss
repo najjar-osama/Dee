@@ -11,16 +11,16 @@
 .bg-wrapper {
   height: 100%;
   left: 0;
-  opacity: 0.25;
+  opacity: 0;
   position: absolute;
   top: 0;
+  transition: opacity 0.5s ease-in-out;
   width: 100%;
   z-index: 1;
 }
 
-.content-wrapper > :not(.bg) {
-  position: relative;
-  z-index: 3;
+.one-s-loaded .bg-wrapper {
+  opacity: 0.25;
 }
 
 .bg {
