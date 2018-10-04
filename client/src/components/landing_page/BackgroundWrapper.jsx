@@ -6,50 +6,50 @@ import bg04 from "./images/bg04.jpg";
 import bg05 from "./images/bg05.jpg";
 import bg06 from "./images/bg06.jpg";
 
-class BackgroundWrapper extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPos: 0,
-      images: [bg01, bg02, bg03, bg04, bg05, bg06],
-      delay: 6000
-    };
-    this.createBackgroundSlides = this.createBackgroundSlides.bind(this);
-    this.bgSwapInterval = null;
-  }
-
-  createBackgroundSlides() {
-    const currentBgIndex = this.state.currentPos;
-    const nextBnIndex =
-      currentBgIndex + 1 === this.state.images.length ? 0 : currentBgIndex + 1;
-    return this.state.images.map((bgSrc, index) => (
+const BackgroundWrapper = () => {
+  const bgRefs = [];
+  const images = [bg01, bg02, bg03, bg04, bg05, bg06];
+  let activeBgIndex = 0;
+  let nextBgIndex = activeBgIndex + 1;
+  // for each image create background
+  const bgs = images.map((image, index) => {
+    const ref = React.createRef();
+    bgRefs.push(ref);
+    return (
       <div
-        className={`bg bg-anim ${currentBgIndex === index ? "visible" : ""} ${
-          nextBnIndex === index ? "next" : ""
+        className={`bg bg-anim ${activeBgIndex === index ? "visible" : ""} ${
+          nextBgIndex === index ? "next" : ""
         }`}
         key={index}
-        style={{ backgroundImage: `url(${bgSrc})` }}
+        style={{ backgroundImage: `url(${image})` }}
+        ref={ref}
       />
-    ));
-  }
-  componentDidMount() {
-    this.bgSwapInterval = setInterval(() => {
-      const nextPos =
-        this.state.currentPos === this.state.images.length - 1
-          ? 0
-          : this.state.currentPos + 1;
+    );
+  });
 
-      this.setState(() => ({
-        currentPos: nextPos
-      }));
-    }, this.state.delay);
-  }
+  setInterval(() => {
+    const newActiveBgIndex =
+      activeBgIndex + 1 === images.length - 1 ? 0 : activeBgIndex + 1;
+    const nextNewActiveBgIndex =
+      newActiveBgIndex + 1 === images.length - 1 ? 0 : newActiveBgIndex + 1;
+    bgRefs.forEach((bgRef, index) => {
+      index === activeBgIndex
+        ? bgRef.current.classList.remove("visible")
+        : false;
+      index === nextBgIndex ? bgRef.current.classList.remove("next") : false;
 
-  componentWillUnmount() {
-    clearInterval(this.bgSwapInterval);
-  }
-  render() {
-    return <div className="bg-wrapper">{this.createBackgroundSlides()}</div>;
-  }
-}
+      index === newActiveBgIndex
+        ? bgRef.current.classList.add("visible")
+        : false;
+      index === nextNewActiveBgIndex
+        ? bgRef.current.classList.add("next")
+        : false;
+    });
+    activeBgIndex = newActiveBgIndex;
+    nextBgIndex = nextNewActiveBgIndex;
+  }, 6000);
+
+  return <div className="bg-wrapper">{bgs}</div>;
+};
+
 export default BackgroundWrapper;

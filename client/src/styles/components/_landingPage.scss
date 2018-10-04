@@ -1,11 +1,12 @@
 .landing-page-wrapper {
-  background-color: #000;
+  background-color: #222;
   height: 100%;
   left: 0;
   overflow-x: hidden;
   position: absolute;
   top: 0;
   width: 100%;
+  transition: background-color 2s ease-in-out;
 }
 
 .bg-wrapper {
@@ -14,19 +15,19 @@
   opacity: 0;
   position: absolute;
   top: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
   width: 100%;
   z-index: 1;
 }
 
-.one-s-loaded .bg-wrapper {
-  opacity: 0.25;
+.loaded .bg-wrapper {
+  opacity: 0.4;
 }
 
 .bg {
   background-size: cover;
   background-position: center;
-  display: none;
+  visibility: hidden;
   height: 100%;
   position: absolute;
   top: 0;
@@ -39,14 +40,14 @@
 }
 
 .visible {
-  display: block;
+  visibility: visible;
   opacity: 0;
   z-index: 2;
 }
 
 .next {
   z-index: 1;
-  display: block;
+  visibility: visible;
 }
 
 @keyframes bg-anim {
