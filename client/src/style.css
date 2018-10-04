@@ -441,3 +441,12 @@ th {
   font-size: 50px;
   margin: 0;
   user-select: none; }
+
+.footer {
+  bottom: 0;
+  color: #fff;
+  position: absolute;
+  padding: 15px 0; }
+
+.footer-body {
+  user-select: none; }
