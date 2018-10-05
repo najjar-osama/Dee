@@ -397,11 +397,11 @@ th {
   height: 100%;
   position: absolute;
   top: 0;
-  transition: opacity 6s ease-in-out;
+  transition: opacity 3s ease-out;
   width: 150%; }
 
 .bg-anim {
-  animation: bg-anim 60s linear 0s infinite; }
+  animation: bg-anim 60s linear 0s infinite alternate; }
 
 .visible {
   visibility: visible;
@@ -409,8 +409,8 @@ th {
   z-index: 2; }
 
 .next {
-  z-index: 1;
-  visibility: visible; }
+  visibility: visible;
+  z-index: 1; }
 
 @keyframes bg-anim {
   0% {

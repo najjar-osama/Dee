@@ -17,8 +17,8 @@ const BackgroundWrapper = () => {
     bgRefs.push(ref);
     return (
       <div
-        className={`bg bg-anim ${activeBgIndex === index ? "visible" : ""} ${
-          nextBgIndex === index ? "next" : ""
+        className={`bg ${activeBgIndex === index ? "bg-anim visible" : ""} ${
+          nextBgIndex === index ? "bg-anim next" : ""
         }`}
         key={index}
         style={{ backgroundImage: `url(${image})` }}
@@ -36,13 +36,22 @@ const BackgroundWrapper = () => {
       index === activeBgIndex
         ? bgRef.current.classList.remove("visible")
         : false;
+      index === activeBgIndex
+        ? bgRef.current.classList.remove("bg-anim")
+        : false;
       index === nextBgIndex ? bgRef.current.classList.remove("next") : false;
-
+      index === nextBgIndex ? bgRef.current.classList.remove("bg-anim") : false;
       index === newActiveBgIndex
         ? bgRef.current.classList.add("visible")
         : false;
+      index === newActiveBgIndex
+        ? bgRef.current.classList.add("bg-anim")
+        : false;
       index === nextNewActiveBgIndex
         ? bgRef.current.classList.add("next")
+        : false;
+      index === nextNewActiveBgIndex
+        ? bgRef.current.classList.add("bg-anim")
         : false;
     });
     activeBgIndex = newActiveBgIndex;
