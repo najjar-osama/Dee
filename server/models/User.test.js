@@ -1,6 +1,9 @@
 const expect = require("chai").expect;
 const mongoose = require("mongoose");
+const MongoDBMemoryServer = require("mongodb-memory-server");
 const User = require("./User");
+
+let mongod = MongoDBMemoryServer();
 
 describe("Testing User Model", () => {
   before(() => {
