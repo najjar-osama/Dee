@@ -5,9 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev-server": "NODE_ENV=dev nodemon server.js",
-    "test-server": "NODE_ENV=test nodemon server.js",
     "server": "NODE_ENV=prod node server.js",
-    "test": "mocha ./**/*.test.js -w"
+    "test": "NODE_ENV=test mocha ./**/*.test.js -w"
   },
   "repository": {
     "type": "git",
