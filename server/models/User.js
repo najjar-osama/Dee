@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const validator = require("validator");
-const UserRoels = require("../../conf/UserRoles.json");
 
 const UserSchema = new Schema({
   email: {
