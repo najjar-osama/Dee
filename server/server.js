@@ -1,22 +1,15 @@
+require("./utils/loadEnvVariables")(); // load env variables
 const express = require("express");
 const path = require("path");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
 const app = express();
 const api = express();
+const db = require("./db");
 
 // variables
 const port = process.env.PORT || 8080;
-const appRoot = path.join(__dirname, "..");
 const appClientPath = path.join(__dirname, "..", "client", "build");
 
 // load environment variables
-if (process.env.NODE_ENV === "dev")
-  dotenv.load({ path: path.join(appRoot, "dev.env") });
-if (process.env.NODE_ENV === "test")
-  dotenv.load({ path: path.join(appRoot, "test.env") });
-if (process.env.NODE_ENV === "prod")
-  dotenv.load({ path: path.join(appRoot, "prod.env") });
 
 //set app locals
 app.locals.title = "Dee";
@@ -28,29 +21,16 @@ app.use(express.static(appClientPath)); // tell express to serve dee app static 
 app.use("/api", api); // set api as a sub app.
 
 // connect to DB
-const dbOptions = {
-  useNewUrlParser: true,
-  user: process.env.DB_USERNAME,
-  pass: process.env.DB_PASSWORD,
-  dbName: process.env.DB_NAME
-};
-mongoose
-  .connect(
-    process.env.DB_URL,
-    dbOptions
-  )
+db.connect()
   .then(() => {
-    console.log(
-      `Connected to DB (${process.env.DB_NAME}) [env:${
-        process.env.NODE_ENV
-      }] successfully!`
-    );
+    console.log("successfully connectted to DB");
   })
-  .catch(error => {
-    console.log(error.message);
-    process.exit();
+  .catch(err => {
+    console.log(err.message);
+    process.exit(0);
   });
 
+// handle basic routing
 app.get("/*", (req, res) => {
   res.sendFile(path.join(appClientPath, "index.html"));
 });
