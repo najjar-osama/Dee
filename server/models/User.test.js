@@ -1,15 +1,26 @@
+require("../utils/loadEnvVariables")(); // load env variables
 const expect = require("chai").expect;
 const mongoose = require("mongoose");
-const MongoDBMemoryServer = require("mongodb-memory-server");
+const db = require("../db");
+const env = process.env;
+
+// load User Model, since we are testing User Model here!
 const User = require("./User");
 
-let mongod = MongoDBMemoryServer();
-
-describe("Testing User Model", () => {
-  before(() => {
-    mongoose.models["User"] ? delete mongoose.models["User"] : false; // false == do nothing
+describe("*** Testing User Model ***", () => {
+  before(done => {
+    // connect to db
+    db.connect()
+      .then(() => {
+        const message = `>> successfully connected to DB:${env.DB_NAME} \n`;
+        console.log(message);
+        done();
+      })
+      .catch(err => {
+        console.log(err.message);
+        return done(err);
+      });
   });
-
   describe("Empty User is Invalid", () => {
     it("should complain that user is empty", done => {
       const emptyUser = new User();
@@ -39,5 +50,11 @@ describe("Testing User Model", () => {
         done();
       });
     });
+  });
+
+  after(() => {
+    // this will prevent
+    mongoose.deleteModel("User");
+    db.disconnect();
   });
 });
